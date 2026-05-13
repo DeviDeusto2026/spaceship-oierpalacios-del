@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class playerHealth : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private int health = 3;
+    public void TakeDamage(int amount)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        health += amount;
+        if(health == 0)
+        {
+            Debug.Log("Te han matado");
+            Time.timeScale = 0;
+            Destroy(gameObject, 1);
+        }
     }
 }

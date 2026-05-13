@@ -1150,13 +1150,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.3000642, y: -0.41648647, z: -0.18722452, w: -0.83752465}
-  m_LocalPosition: {x: -1258, y: 500, z: -221}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 100, z: -150}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 20.284, y: 59.717, z: 36.928}
+  m_Father: {fileID: 1045200609}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &330585547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1210,10 +1210,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 330585543}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04c767a2ab18097449111ab2b9733c87, type: 3}
+  m_Script: {fileID: 11500000, guid: ecf99d65629f2fe448b1ba5916f6d0a3, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Movement
-  velocity: 0.0001
+  m_EditorClassIdentifier: Assembly-CSharp::mouseLook
+  mouseSensitivity: 200
+  playerBody: {fileID: 1045200609}
 --- !u!4 &367856427 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4643521465287934, guid: 300f80108a63f48618cb4a1c8b8c1e86, type: 3}
@@ -2226,8 +2227,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Translation
   ellipseSegments: 50
   avgSunDistance: 58
-  e: 0.20563069
-  orbitalPeriod: 0.2408467
+  e: 0.20563067
+  orbitalPeriod: 0.24084668
 --- !u!96 &868182736
 TrailRenderer:
   serializedVersion: 4
@@ -2466,16 +2467,28 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6676849553677731724, guid: 1b9c9bd520ad54747a98d7222069677a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6676849553677731724, guid: 1b9c9bd520ad54747a98d7222069677a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6676849553677731724, guid: 1b9c9bd520ad54747a98d7222069677a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6676849553677731724, guid: 1b9c9bd520ad54747a98d7222069677a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 324.74823
+      value: 309
       objectReference: {fileID: 0}
     - target: {fileID: 6676849553677731724, guid: 1b9c9bd520ad54747a98d7222069677a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.621425
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6676849553677731724, guid: 1b9c9bd520ad54747a98d7222069677a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -467.2053
+      value: -153
       objectReference: {fileID: 0}
     - target: {fileID: 6676849553677731724, guid: 1b9c9bd520ad54747a98d7222069677a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2505,6 +2518,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6676849553677731724, guid: 1b9c9bd520ad54747a98d7222069677a, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7706704133163136415, guid: 1b9c9bd520ad54747a98d7222069677a, type: 3}
       propertyPath: m_Name
       value: player
@@ -2515,7 +2532,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 6676849553677731724, guid: 1b9c9bd520ad54747a98d7222069677a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 330585546}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7706704133163136415, guid: 1b9c9bd520ad54747a98d7222069677a, type: 3}
       insertIndex: -1
@@ -2544,6 +2564,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4f19cb0639690e4c88f3ff5624e3fd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::playerMovement
+  speed: 50
+  cameraTransform: {fileID: 330585546}
 --- !u!114 &1045200607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2568,6 +2590,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a14b5aa7b7ebdf14cb9589d9a7ae66d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::playerCombat
+  prefabBala: {fileID: 341924759540741987, guid: fe69576f0087ab043b6b4ffed60b204b, type: 3}
+--- !u!4 &1045200609 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6676849553677731724, guid: 1b9c9bd520ad54747a98d7222069677a, type: 3}
+  m_PrefabInstance: {fileID: 1045200604}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1084399682 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4431810912100570, guid: 5d1442ad8c11442988e0eca5d8af73f0, type: 3}
@@ -2911,7 +2939,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1345073572}
   - component: {fileID: 1345073573}
-  - component: {fileID: 1345073574}
   m_Layer: 0
   m_Name: CelestialBodies
   m_TagString: Untagged
@@ -2929,7 +2956,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 45.55, y: 45.55, z: 45.55}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 827188412}
@@ -2956,19 +2983,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimeControler
   newTimeScale: 1
---- !u!114 &1345073574
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1345073571}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04c767a2ab18097449111ab2b9733c87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Movement
-  velocity: 0.0001
 --- !u!4 &1483309635 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1229251971759408710, guid: 5f776740c447e45afb25edbca842de92, type: 3}
@@ -2988,7 +3002,6 @@ GameObject:
   - component: {fileID: 1497734551}
   - component: {fileID: 1497734550}
   - component: {fileID: 1497734554}
-  - component: {fileID: 1497734555}
   - component: {fileID: 1497734556}
   m_Layer: 0
   m_Name: Earth
@@ -3121,19 +3134,6 @@ MonoBehaviour:
   avgSunDistance: 150
   e: 0.01671022
   orbitalPeriod: 1.0000174
---- !u!114 &1497734555
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1497734548}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04c767a2ab18097449111ab2b9733c87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Movement
-  velocity: 0.0001
 --- !u!96 &1497734556
 TrailRenderer:
   serializedVersion: 4
@@ -3362,7 +3362,6 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 330585546}
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 1345073572}

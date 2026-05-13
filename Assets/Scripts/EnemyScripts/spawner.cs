@@ -1,16 +1,7 @@
 using UnityEngine;
 
-public class enemyControl : MonoBehaviour
+public class spawner : MonoBehaviour
 {
-    int health = 3;
-    public void TakeDamage(int amount)
-    {
-        health += amount;
-        if (health == 0)
-        {
-            Destroy(gameObject);
-        }
-    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

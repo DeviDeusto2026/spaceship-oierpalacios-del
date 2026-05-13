@@ -40,7 +40,7 @@ public class Translation : MonoBehaviour
         _xScale = avgSunDistance * Mathf.Sqrt(1 - Mathf.Pow(e, 2));
 
         CalculateEllipse();
-        
+
         _origin = _ellipsePoints[counter];
         _destiny = _ellipsePoints[counter + 1];
 
@@ -52,11 +52,11 @@ public class Translation : MonoBehaviour
         this.GetComponent<MeshRenderer>().material.color = Color.blue;
 
         //Parsed orbitalPeriod to seconds, divided by "constant" to accelerate the system
-        _orbitalPeriofSeconds = (orbitalPeriod * 365 * 24 * 60 * 60)/1000000;
+        _orbitalPeriofSeconds = (orbitalPeriod * 365 * 24 * 60 * 60) / 1000000;
     }
 
     void Update()
-    { 
+    {
         //Fixeted Y so the planets can still move upwards
         _origin.y = this.transform.position.y;
         _destiny.y = this.transform.position.y;
@@ -75,7 +75,7 @@ public class Translation : MonoBehaviour
     void move(Vector3 origin, Vector3 destiny)
     {
         Vector3 direction = destiny - origin;
-        float velocity =  direction.magnitude / (_orbitalPeriofSeconds / ellipseSegments);
+        float velocity = direction.magnitude / (_orbitalPeriofSeconds / ellipseSegments);
         this.transform.position += direction.normalized * velocity * Time.deltaTime;
 
         Vector3 myDirection = destiny - this.transform.position;
@@ -90,7 +90,7 @@ public class Translation : MonoBehaviour
     void nextDestiny()
     {
         _origin = _destiny;
-        
+
         counter++;
 
         //Reset array position
