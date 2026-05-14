@@ -32,13 +32,4 @@ public class enemyAttack : MonoBehaviour
         }
 
     }
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (gameObject.tag.Equals("Enemy") && collision.gameObject.tag.Equals("Player"))
-        {
-            Debug.Log("A");
-            collision.gameObject.GetComponent<playerHealth>().TakeDamage(-3);
-            Destroy(gameObject);
-        }
-    }
 }

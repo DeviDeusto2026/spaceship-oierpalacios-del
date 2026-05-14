@@ -28,7 +28,7 @@ public class enemyControl : MonoBehaviour
             health = 10;
             esJefe = true;
         }
-        else if (gameObject.tag.Equals("Enemigo Normal"))
+        else if (gameObject.tag.Equals("Enemy"))
         {
             health = 3;
             esJefe = false;
@@ -67,7 +67,6 @@ public class enemyControl : MonoBehaviour
         
         if ((dist > attackRange || !esJefe) && dist < detectionRange )
         {
-            Debug.Log("Persiguiendo");
             chasingState.Chase();
             return;
         }
@@ -76,9 +75,16 @@ public class enemyControl : MonoBehaviour
         // Normales y pequeños matan por OnTriggerEnter.
         if (cooldownTimer <= 0 && dist < attackRange && esJefe)
         {
-            Debug.Log("Atacando");
             cooldownTimer = attackCooldown;
             attackState.Attack(target.transform);
+        }
+    }
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (gameObject.tag.Equals("Enemy") && collision.gameObject.tag.Equals("Player"))
+        {
+            collision.gameObject.GetComponent<playerHealth>().TakeDamage(-3);
+            Destroy(gameObject);
         }
     }
 }
