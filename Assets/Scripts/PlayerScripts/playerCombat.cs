@@ -10,6 +10,7 @@ public class playerCombat : MonoBehaviour
         {
             GameObject bala = Instantiate(prefabBala, transform.position, transform.rotation);
             bala.GetComponent<Rigidbody>().AddForce(transform.forward * 10000, ForceMode.Force);
+            bala.GetComponent<balaLogica>().Disparador = this.gameObject;
         }
     }
 }

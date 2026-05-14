@@ -2,15 +2,22 @@ using UnityEngine;
 
 public class enemyChasing : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public enemyControl enemyControl;
 
-    // Update is called once per frame
-    void Update()
+    public void Chase()
     {
-        
+        if (enemyControl == null) return;
+        if (enemyControl.target == null) return;
+
+        Vector3 dir = (enemyControl.target.transform.position
+                       - transform.position).normalized;
+        transform.position += dir * enemyControl.speed * 2f * Time.deltaTime;
+
+        if (dir != Vector3.zero)
+            transform.rotation = Quaternion.RotateTowards(
+                transform.rotation,
+                Quaternion.LookRotation(dir),
+                5f
+            );
     }
 }

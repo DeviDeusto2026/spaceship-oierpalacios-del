@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4415794199089117624
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2187792965596724500}
+  - component: {fileID: 2424045539736944422}
+  m_Layer: 0
+  m_Name: Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2187792965596724500
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4415794199089117624}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2424045539736944422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4415794199089117624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c78674293c4e494d98f4b61ce170fb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::spawner
+  enemigosNormales:
+  - {fileID: 586948091224235897, guid: bacbcd9c132f6d24f86ce36a78a1418a, type: 3}
+  - {fileID: 1132862347377448108, guid: 60953c340dcc3ee4ebda5ce1a76a7c4b, type: 3}
+  - {fileID: 5545771107992263279, guid: e2a4ad6a932758244b0fd8823d61b7f7, type: 3}
+  - {fileID: 4864141650623250106, guid: a90a3a37a908097419e91441e2a8039e, type: 3}
+  - {fileID: 1309099356787230373, guid: 7e7c3875658c3494c96767ef157b0000, type: 3}
+  - {fileID: 986130731478730654, guid: a4b5ad0831826c54ba63e8e18c4f829e, type: 3}
+  jefeObj: {fileID: 1459243696069161874, guid: f6a7f0a35b4f16d4c91dc3ae43842f37, type: 3}
+  enemigoChiquito: {fileID: 5153828750269762733, guid: 174d73ff45454fb4aa1d180a0c5ed786, type: 3}
+  bala: {fileID: 341924759540741987, guid: fe69576f0087ab043b6b4ffed60b204b, type: 3}

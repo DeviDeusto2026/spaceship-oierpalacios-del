@@ -2,15 +2,43 @@ using UnityEngine;
 
 public class enemyAttack : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public enemyControl enemyControl;
+    public GameObject balaPrefab;    // prefab con balaLogica
 
-    // Update is called once per frame
-    void Update()
+    public void Attack(Transform target)
     {
+        if (target == null || balaPrefab == null) return;
         
+        
+        // Girar hacia el jugador en 3D
+        Vector3 dir = (target.position - transform.position).normalized;
+        if (dir != Vector3.zero)
+            transform.rotation = Quaternion.RotateTowards(
+                transform.rotation,
+                Quaternion.LookRotation(dir),
+                360f
+            );
+        // Instanciar bala apuntando al jugador solo si es jefe: Tag de jefe: Jefe
+        if (enemyControl.esJefe)
+        {
+            GameObject bala = Instantiate(balaPrefab,
+                                        transform.position,
+                                        Quaternion.LookRotation(dir));
+
+            // Asignar el Jefe como Disparador para que balaLogica
+            // identifique la bala como enemiga
+            balaLogica bl = bala.GetComponent<balaLogica>();
+            if (bl != null) {bl.Disparador = enemyControl.gameObject; bala.GetComponent<Rigidbody>().AddForce(transform.forward * 10000, ForceMode.Force);}
+        }
+
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (gameObject.tag.Equals("Enemy") && collision.gameObject.tag.Equals("Player"))
+        {
+            Debug.Log("A");
+            collision.gameObject.GetComponent<playerHealth>().TakeDamage(-3);
+            Destroy(gameObject);
+        }
     }
 }
